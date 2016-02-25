@@ -56,7 +56,7 @@ def mysend(sokc, msg):
         sent = sock.send(msg[totalsent:])   # отправляем данные со смещением. Метод возвращает число сколько данных удалось отправить. 
         if sent == 0:
             raise RuntimeError('broken')
-
-Длину документа нужно передавать во флагах???
         totalsent = tatalsent + sent
 
+
+Длину документа нужно передавать во флагах???
