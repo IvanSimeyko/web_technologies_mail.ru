@@ -1,0 +1,173 @@
+/* GENERAL STYLES */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 100%
+}
+
+ul {
+    margin: 0;
+    padding: 0
+}
+
+ul li{
+   list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    font-size: 13px;
+    line-height: 1.3em;
+}
+
+.container {
+    margin: 0 auto;
+    width: 960px
+}
+
+/* HEADER */
+.header {
+    padding: 50px 0;
+    background-color: yellowgreen;
+}
+
+/* ищем в секции header тег h1 */
+.header h1,
+.header h2 {
+    color: greenyellow;
+    text-align: center;
+}
+
+/* NAVIGATIONS */
+.page-navigation {
+    background-color: #222;
+    border-color: #101010;
+    min-height: 64px;
+}
+
+/* найдем дочерний элемент li */
+.page-navigation li {
+    float: left;
+    width: 100px;
+}
+
+/* найдем дочерний элемент a */
+.page-navigation a {
+    display: block;
+    color: #9d9d9d;
+    line-height: 4em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* выбираем элемент с псевдоклассом hower, что означает наведение мышкой на элемент */
+.page-navigation li a:hover {
+    color: yellowgreen;
+    background-color: #000000;
+}
+
+.login{
+    padding: 15px 0;
+    float: right;
+}
+
+/* ищем элементы формы */
+.login input[type='text'],
+.login input[type='password']{
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: none;
+}
+
+.login input[type='submit'] {
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+/* изменим свойства при наведении на кнопку */
+.login input[type='submit']:hover,
+button:hover {
+    background-color: darkgrey;
+    color: white;
+}
+
+/* MAIN PART */
+.collections {
+    overflow: auto;
+}
+
+.collection-title {
+    padding: 5px;
+    border-bottom: 1px solid #777;
+    font-size: 36px;
+}
+
+.collection-title small {
+    color: grey;
+    font-size: 70%;
+}
+
+.collection-item-outer {
+    display: inline-block;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 33.33%;
+    box-sizing:border-box;
+}
+
+.collections > div:first-child{
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+.collections > div:last-child{
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.collection-item {
+    border: 1px solid #959595;
+}
+
+.collection-item img,
+.collection-item video{
+    width: 100%;
+}
+
+.collection-text {
+    padding: 0 20px 20px 20px,
+}
+
+.collection-text h3 {
+    color: yellowgreen;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.collection-text p {
+    height: 80px;
+    overflow: hidden;}
+
+.collection-text button {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* FOOTER*/
+.footer {
+    background-color: yellowgreen;
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 30px;
+    /*height: 90px;*/
+}
