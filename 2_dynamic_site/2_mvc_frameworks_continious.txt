@@ -20,3 +20,53 @@ def post_details(request, pk) -
 def category_view(request, *args, **kwargs):
     pk = args[0]
     pk = kwargs['pk'] - вьюшка у которой явно не прописанны какие либо параметры. *args - все позиционные параметры, **kwargs - все именованные параметры
+
+HttpRequest
+Переменные:
+request.method - метод запроса
+request.GET - словарь (а точнее QueryDict) с GET параметром
+request.POST - словарь (а точнее QueryDict) с POST параметрами
+request.COOKIES - словари с куки
+request.FILES - словарь с заруженными файлами при post запросе. Ключ - имя интпута, значение - файловый дискриптор из которого можно читать файл
+request.META - CGI-like переменные
+request.session - словарь-сессия(*). Если записать в этот словарь переменную, то при следующем запросе она не исчезнет и ее можно будет прочитать
+request.user - текущий пользователь
+
+----------------
+Middlware - это приложения, которые позволют добавить нашему проекту некий функционал.
+---------------
+
+
+HttpResponse 
+Создаем этот объект руками и заносим в него некоторые данные. Самый простой случай
+responce = HttpResponse('<html>Hello world</html>')
+
+Ответ состоит из - код ответа, заголовки ответа, тело ответа. Чтобы передать создать их полностью
+response = HttpResponse(
+    content = '<html>Hello world</html>',
+    content_type = 'text/html',
+    status = 404,
+)
+
+СПЕЦИАЛЬНЫЕ ТИПЫ ОТВЕТОВ
+redirect = HttpResponseRedirect('/')   #302 код ответа задается автоматически
+redirect = HttpResponsePermanentRedirect('/') #301
+redirect = HttpResponseNotFound()    #404
+redirect = HttpResponseForbidden('/')    #403
+redirect = HttpResponseBadRequest()    #400
+
+------
+Все ошибки, которые возникают во вьюшках (например синтаксиеские или неправильное обращение по ключу словаря) вызывают 500-ю ошибку. 
+-----
+
+Получение get параметров
+request.GET.get('page') or 1 - обращение по ключу. Если нет параметра по умолчанию то будет None
+Всегда нужно проверять поьзовательские данные (try...except)
+
+имеем такой урл - /path/?id=3&id=4&id=5
+Получение значений:
+id = request.GET.get('id')   # id is 5
+id = request.GET.getlist('id')   # id is [3,4,5] , у обычных словарей такого метода нет
+id = request.GET.urlencode() - сериализация урла id = '3&id=4&id=5'
+
+
