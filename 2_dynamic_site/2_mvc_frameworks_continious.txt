@@ -1,0 +1,22 @@
+DJANGO VIEWS
+
+Обычные питон-функции, которые принимают на вход первым параметром объект респонс (django http HttpRequest) и возвращают объект django http Response.
+
+def post_text(request):
+    try:
+        id = request.Get.get('id')   # id передается в урле в гет параметрах
+        obj = Post.object.get(pk=id)
+    except Post DoesNotExist:
+        raise Http 404
+    return HttpResponse(obj.text, content_type='text/plain')
+
+ЗАХВАТ ПАРАМЕТРОВ ИЗ УРЛ
+url(r'^category/(\d+)/$), 'category_view') - захват то что в скобках (пизиционные армументы)
+
+url(r'^(?P<pk>\d+)/$), 'post_detail') - захват, то что в угловых скобках (в переменную, хранятся в движке приложения и ее можно извлечь)
+
+def post_details(request, pk) - 
+
+def category_view(request, *args, **kwargs):
+    pk = args[0]
+    pk = kwargs['pk'] - вьюшка у которой явно не прописанны какие либо параметры. *args - все позиционные параметры, **kwargs - все именованные параметры
