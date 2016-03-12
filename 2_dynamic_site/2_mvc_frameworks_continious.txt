@@ -69,4 +69,31 @@ id = request.GET.get('id')   # id is 5
 id = request.GET.getlist('id')   # id is [3,4,5] , у обычных словарей такого метода нет
 id = request.GET.urlencode() - сериализация урла id = '3&id=4&id=5'
 
+Получение и установка Cookies
+Установка
+response = HttpResponse(html)
+response.set_cookie('visited', 1)
+Получение
+is_visited = request.COOKIES.get('visited')
+
+
+ДЕКОРАТОРЫ функций
+Декораторы - функция, преобразующая одну функцию в другую, т.е. она изменяет поведение некоторой функции. Например:
+def double_it(func):
+    def tmp(*args):
+        return func(*args) *2
+    return tmp
+
+@double_it
+def mult(a, b):
+    return a*b
+
+mult(2,2) вернет 8
+
+Декораторы в django нужно импортировать. 
+@require_GET - только GET запросы
+@require_POST - только POST запросы
+@login_required(login_url='/login/') - говорит что определенная вьюшка может быть доступна лишь авторизированным пользователем. Если иначе - редиректнет на урл регистрации
+@csrf_exempt - отключиь проверку CSRF
+
 
