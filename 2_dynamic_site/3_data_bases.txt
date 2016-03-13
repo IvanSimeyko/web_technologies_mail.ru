@@ -22,6 +22,22 @@ Forein key (внешние ключи) - записи в разных табли
 - атрибут с фиксированным числом значений - внешняя таблица либо поле типа enum.
 
 БАЗЫ ДАННЫХ В PYTHON
+Язык описания и запроса в базы данных - SQL (structured query language). Отправляет в базу данных запрос (в виде строки с текстом), а получаем результат в виде строки с данными.
+
+Стандарт для работы СУБД в Python - PEP-0249
+Библиотека MySQL . Загрузка (библиотека должна быть установлена на компе) - inport MySQL.db
+Подключение с б.д.:
+db = MySQL.db.connect(host='localhost', user = 'joe', password = 'sfdkj', db = 'thangs') - db - это схема
+Методы:
+cursor = db.cursor() - получение большого объема данных
+db.commit() - закомитить изменения
+db.close() - закрытие соединения
+
+ВЫПОЛНЕНИЕ ЗАПРОСОВ IN PYTHON
+cursor.execute(''' update wsers set age = age + 1 where name = %s ''', (name)) - в строке запрос обновить возраст всех юзеров, имя которых начинается с name
+
+cursor.execute('select * from users')
+users - cursor.fetchall() - выбираем всех юзеров из таблицы 
 
 
 
