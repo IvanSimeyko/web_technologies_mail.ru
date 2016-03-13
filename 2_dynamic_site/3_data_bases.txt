@@ -34,11 +34,40 @@ db.commit() - закомитить изменения
 db.close() - закрытие соединения
 
 ВЫПОЛНЕНИЕ ЗАПРОСОВ IN PYTHON
-cursor.execute(''' update wsers set age = age + 1 where name = %s ''', (name)) - в строке запрос обновить возраст всех юзеров, имя которых начинается с name
+cursor.execute(''' update users set age = age + 1 where name = %s ''', (name)) - в строке запрос обновить возраст всех юзеров, имя которых начинается с name
 
 cursor.execute('select * from users')
 users - cursor.fetchall() - выбираем всех юзеров из таблицы 
 
 
+БАЗЫ ДАННЫХ В DJANGO
 
-  
+ПРЯМОЙ ДОСТУП К БАЗЕ ДАННЫХ ИЗ DJANGO
+from django.db import connection, connections
+cur = connection.cursor()
+cur.execute('select * from tbl linit 10')
+
+ORM (object relational mapping) - библиотека представляющая объектно-ориенированный интерфейс к реляционной базе данных. Djangp Models -библиотека ORM in Django
+____________________________
+Полезные утилиты:
+./manage.py validate - проверить структтуру модели
+./manage.py syncdb - создать таблицы в базе (1 раз)
+./manage.py shell - запустить python shell (есть связь с настройками текущего проекта)
+./manage.py dbshell - запустить клиент базы данных
+_____________________________
+
+QuerySet - объекты, которые представляют собой запрос к базе данных.
+
+МОДЕЛИ
+blank=True - могут быть пустые данные, т.е. с точки зрения языка Python там может быть переменная типа None
+null = True - показывает как пустое поле будет храниться в базе данных
+
+
+Методы - операции, которые можем осуществить с одним объектом модели. 
+def __unicode__(self):
+    return self.title   #когда пытаемся перевести объект в строку нужно вернуть его имя
+Внутри модели может быть специальный класс Мета - это задание различных опций модели. ОпцииЖ
+db.table = 'models name in data bases'
+ordering = ['-name'] - сортировка моели по умолчанию
+ 
+
