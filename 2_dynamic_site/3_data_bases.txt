@@ -69,5 +69,10 @@ def __unicode__(self):
 Внутри модели может быть специальный класс Мета - это задание различных опций модели. ОпцииЖ
 db.table = 'models name in data bases'
 ordering = ['-name'] - сортировка моели по умолчанию
- 
+
+СВЯЗИ МЕЖДУ МОДЕЛЯМИ
+ForeignKey(Category, null = true, on_delete= models.SET_NULL) - связь один ко многимю. Ссылка на значение из другого класса. on_delete - задаем что делать с постом при удалении категории
+
+OneToOneField(PostStatus) - один к одному
+ManyToManyFiel(Tag) - связь многие ко многим
 
