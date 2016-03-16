@@ -9,3 +9,6 @@ posts = Post.objects   # object ModelManager
 Methods - filter, exclude, order_by (сортировка), reverse, annotate, values (выбор отдельных колонок, а не объектов), distinct (выборка уникальных значений)
 
 Методы результ: create, update, delete, get_or_create, count
+
+MODEL MANAGER
+
