@@ -11,4 +11,8 @@ Methods - filter, exclude, order_by (сортировка), reverse, annotate, v
 Методы результ: create, update, delete, get_or_create, count
 
 MODEL MANAGER
+???
 
+МИГРАЦИИ
+Миграции - это процедура изменения схемы бвзы данных для проведения ее в соответствие с моделями. Начиная с версии 1.7 Django поддерживает миграции на уровне фрейверка.
+ 
