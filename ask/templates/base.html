@@ -1,3 +1,11 @@
-A
-{% block A %}B{% endblock %}
-C
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{% block title %}Q&A{% endblock %}</title>
+	<head>
+	<body>
+		<h1>{% block header %}{% endblock %}</h1>
+		{% block content %}{% endblock %}
+		{% block navigation %}{% endblock %}
+	</body>
+</html>

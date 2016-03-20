@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} – all questions {% endblock %}
+
+{% block header %}All Questions{% endblock %}
+
+{% block content %}
+    {% for qst in questions %}
+        <div>
+            <a href="{% url 'qa:question' qst.id %}">{{ qst.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block navigation %}
+	{% include "pages.html" %}
+{% endblock %}

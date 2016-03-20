@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} – {{ qst.id }}{% endblock %}
+
+{% block header %}{{ qst.title }}{% endblock %}
+
+{% block content %}
+    <div>
+        <p>{{ qst.text }}</p>
+    </div>
+    <h3>Answer</h3>
+    {% for answer in answers %}
+        <div>
+            <p>{{ answer.text }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
